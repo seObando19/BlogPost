@@ -1,0 +1,31 @@
+{% extends 'index.html' %}
+{% block title %}Sign Up{% endblock title %}
+<!-- existen dos maneras para hacer el form -->
+<!-- PRIMERA construyendolo directamente -->
+<!-- <form action="" method="POST">
+    <input type="text" name="name">
+</form> -->
+
+<!-- SEGUNDA -->
+<!-- Creando un form.py que se crea apartir de un modelo -->
+
+{% block body %}
+<div class="row">
+    <div class="row cards" style="width: auto; margin: auto auto;">
+        <div class="card border-primary mb-3 text-center" style="max-width: 30rem;">
+            <form action="" method="POST">
+                <div class="card-header">
+                    <h2>Sign Up</h2>
+                    <img src="https://www.roiback.com/sites/all/themes/roiback/logo.png" alt="">
+                </div>
+                <div class="card-body">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <br>
+                    <button type="submit" class="btn btn-primary">Register</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock body %}

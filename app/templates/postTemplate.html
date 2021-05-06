@@ -1,0 +1,48 @@
+{% extends 'index.html' %}
+
+{% block title %}Posts{% endblock title %}
+{% block body %}
+<div class="card text-center">
+    <div class="card-header">
+        <ul class="nav nav-tabs card-header-tabs">
+            <li class="nav-item">
+                <a class="nav-link" aria-current="true" href="{% url 'create_post' %}">Publish</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Category</a>
+            </li>
+        </ul>
+    </div>
+    <div class="card-body">
+        {% block bodyPost %}
+        {% endblock bodyPost %}
+    </div>
+</div>
+{% for post in data %}
+<br>
+<div class="row">
+    <div class="card text-dark bg-light mb-3 border-secondary">
+        <div class="card-header">
+            @{{ post.user }}
+            <div class="d-flex flex-row-reverse mr-5">
+                <a href="{% url 'delete_post' post.id %}" class="btn btn-danger">Delete</a>
+                <a href="{% url 'update_post' post.id %}" class="btn btn-primary">Edit</a>
+            </div>
+        </div>
+        <div class="card-body">
+            <h5 class="card-title">{{ post.title }}</h5>
+            <h6 class="card-subtitle mb-2 text-muted">Category:  {{ post.category }}</h6>
+            <p class="card-text">{{ post.description }}</p>
+            <div class="fb-like" data-href="https://developers.facebook.com/docs/plugins/" data-width="" data-layout="standard" data-action="like" data-size="large" data-share="true"></div>
+            <!-- <a href="#" class="btn btn-primary">Like</a>
+            <a href="#" class="btn btn-primary">Comment</a> -->
+        </div>
+        <div class="card-footer">
+            <!-- <small class="text-muted">Last updated 3 mins ago</small> -->
+            <small class="text-muted">{{post.timestamp}}</small>
+        </div>
+    </div>
+</div>
+<br>
+{% endfor %}
+{% endblock body %}

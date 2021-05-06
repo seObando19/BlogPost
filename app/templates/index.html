@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+    <!--     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootswatch@4.5.2/dist/united/bootstrap.min.css"
+        integrity="sha384-JW3PJkbqVWtBhuV/gsuyVVt3m/ecRJjwXC3gCXlTzZZV+zIEEl6AnryAriT7GWYm" crossorigin="anonymous"> -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@100;300&display=swap" rel="stylesheet">
+    <title>{% block title %}Index{% endblock title %}</title>
+</head>
+
+<body>
+    <!-- nav -->
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+            <a class="navbar-brand" href="#">Roiblog</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01"
+                aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarColor01">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="{% url 'index' %}">Inicio</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="{% url 'post_list' %}">Post</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="{% url 'list_user' %}">User list</a>
+                    </li>
+                </ul>
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'signIn' %}">Sign In</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'signUp' %}">Sign Up</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <!-- nav -->
+    <br>
+    <!-- Contenido -->
+    <main>
+        <div class="container">
+            <!-- messages -->
+            {% if messages %}
+            {% for msg in messages %}
+            <div class="alert alert-success" role="alert">
+                <h4 class="alert-heading">Well done!</h4>
+                <p>Aww yeah, you successfully read this important alert message</p>
+                <hr>
+                <p class="mb-0">{{msg}}</p>
+            </div>
+            {% endfor %}
+            {% endif %}
+            <!-- messages -->
+            {% block body %}
+            <div class="jumbotron">
+                <h1 class="display-3">Hello, to Roiblog!</h1>
+                <p class="lead">
+                    Bienvenido a Roiblog un  proyecto tecnico para Roiback
+                </p>
+                <img src="https://www.roiback.com/sites/all/themes/roiback/logo.png" alt="">
+                <hr class="my-4">
+                <p>
+                    Este proyecto fue construido en Django sin el uso de administrador, este proyecto
+                    cuenta con un CRUD de usuarios, posts, cuenta con una base de datos usando el gestor Postgresql
+                    y un sistema de login/register (En desarrollo)
+                </p>
+                <img src="https://www.edgica.com/wp-content/files/django-logo-big-1024x640.jpg" alt="" width="280" height="150">
+                <img src="https://logodownload.org/wp-content/uploads/2019/10/python-logo-1.png" alt="" width="280" height="150">
+                <img src="https://usuarioperu.com/wp-content/uploads/2016/03/postgresql-logo.png" alt="" width="280" height="150">
+                <img src="https://getlogovector.com/wp-content/uploads/2020/07/postman-inc-logo-vector.png" alt="" width="280" height="150">
+                <p class="lead">
+                    <a class="btn btn-primary btn-lg" href="https://github.com/seObando19" role="button">Learn more</a>
+                </p>
+            </div>
+            {% endblock body %}
+        </div>
+    </main>
+    <!-- contenido -->
+    <div id="fb-root"></div>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/es_ES/sdk.js#xfbml=1&version=v10.0" nonce="09sF4rT9"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

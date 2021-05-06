@@ -1,0 +1,33 @@
+{% extends 'index.html' %}
+{% block title %}List to Users{% endblock title %}
+
+{% block body %}
+<h2>Page principal</h2>
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Name</th>
+            <th scope="col">Lastname</th>
+            <th scope="col">Email</th>
+            <th scope="col">TypeUser</th>
+            <th scope="col">Options</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for person in users %}
+        <tr>
+            <td>{{ person.id }}</td>
+            <td>{{ person.name }}</td>
+            <td>{{ person.lastname }}</td>
+            <td>{{ person.email }}</td>
+            <td>{{ person.typeUser }}</td>
+            <td>
+                <a href="{% url 'update_user' person.id %}">EDIT</a>
+                <a href="{% url 'delete_user' person.id %}">DELETE</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock body %}
