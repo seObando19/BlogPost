@@ -134,7 +134,7 @@ Para que el proyecto funcione debe tener instalado:
     pip install -r requirements.txt
     ```
 
-6. Ejecutar la migracion de los modelos a postgresql. estar en la ruta blogpost-app/app/
+6. Ejecutar la migracion de los modelos a postgresql. estar en la ruta blogpost-app/
     ```sh
     python manage.py makemigrations
     python manage.py migrate
