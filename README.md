@@ -72,9 +72,6 @@
 
 <!-- ABOUT THE PROJECT -->
 ## Acerca del proyecto
-
-![Image Project](image/imagePrincipal.png "Image Project")
-
 Este proyecto fue construido en Django sin el uso de administrador, este proyecto
 cuenta con un CRUD de usuarios, posts, cuenta con una base de datos usando el gestor Postgresql
 y un sistema de login/register (En desarrollo)
